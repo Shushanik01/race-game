@@ -2,7 +2,7 @@
 
 ## 🚀 Links
 - **Repository (code):** [Async Race Repo](https://github.com/Shushanik01/Async-race-project)
-- **Live Demo:** [Async Race Demo](https://shushanik01.github.io/Async-race-project/)
+- **Live Demo:** [Async Race Demo](https://shushanik01.github.io/race-game/)
 
 
 ## Project Score: 380 / 400  
