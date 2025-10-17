@@ -27,7 +27,7 @@
 - [x] **Car Management Buttons (10 points)** 
 - [x] **Pagination (10 points)** 
 - [x] **Empty Garage Message (10 points)** 
-- [-] **Auto Previous Page (10 points)** 
+  
 
 ---
 
