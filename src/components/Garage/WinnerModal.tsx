@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import { WinnerModalProps } from '../../modules/Modules';
+import { WinnerModalProps } from '../../types';
 
 const WinnerModal: React.FC<WinnerModalProps> = ({ winner, onClose }) => {
     if (!winner) return null;
