@@ -1,10 +1,15 @@
-import { http, HttpResponse } from 'msw';
+import { http, HttpResponse, passthrough } from 'msw';
 import { loadDB, saveDB } from './db.ts';
 
 const BASE = 'http://localhost:3000';
 
 export const handlers = [
-  // ── Garage ────────────────────────────────────────────────────────────────
+  http.all('*', ({ request }) => {
+    if (request.mode === 'navigate') {
+      return passthrough();
+    }
+  }),
+
 
   http.get(`${BASE}/garage`, ({ request }) => {
     const url = new URL(request.url);
@@ -52,7 +57,6 @@ export const handlers = [
     return HttpResponse.json({ success: true });
   }),
 
-  // ── Engine ────────────────────────────────────────────────────────────────
 
   http.patch(`${BASE}/engine`, ({ request }) => {
     const url = new URL(request.url);
@@ -74,7 +78,6 @@ export const handlers = [
     return HttpResponse.json({ error: 'Invalid status' }, { status: 400 });
   }),
 
-  // ── Winners ───────────────────────────────────────────────────────────────
 
   http.get(`${BASE}/winners`, ({ request }) => {
     const url = new URL(request.url);
