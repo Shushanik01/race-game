@@ -27,13 +27,14 @@ const WinnerModal: React.FC<WinnerModalProps> = ({ winner, onClose }) => {
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 zIndex: 9999,
-                background: 'linear-gradient(135deg, rgba(0,0,0,0.95), rgba(20,0,40,0.95))',
+                background: 'rgba(4, 6, 16, 0.97)',
                 padding: 4,
-                borderRadius: 2,
-                border: '3px solid #ff00ff',
-                boxShadow: '0 0 30px #ff00ff, 0 0 60px #ff00ff',
+                borderRadius: '12px',
+                border: '2px solid #e040fb',
+                boxShadow: '0 0 40px rgba(224,64,251,0.5), 0 0 80px rgba(224,64,251,0.2), 0 24px 60px rgba(0,0,0,0.8)',
                 textAlign: 'center',
-                minWidth: '400px'
+                minWidth: '400px',
+                backdropFilter: 'blur(24px)',
             }}>
                 <Typography 
                     variant="h2" 

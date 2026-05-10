@@ -1,113 +1,92 @@
 import { createTheme } from '@mui/material/styles';
 
-interface LightColors {
-  teal: string;
-  turquoise: string;
-  mint: string;
-  darkTeal: string;
-  white: string;
-  lightMint: string;
-  darkText: string;
-}
-
-const lightColors: LightColors = {
-  teal: '#2b7a78',
-  turquoise: '#3aafa9',
-  mint: '#def2f1',
-  darkTeal: '#17252a',
-  white: '#feffff',
-  lightMint: '#e8f5f4',
-  darkText: '#17252a',
+const c = {
+  bg: '#040610',
+  surface: 'rgba(8, 11, 26, 0.92)',
+  magenta: '#e040fb',
+  magentaDim: 'rgba(224, 64, 251, 0.12)',
+  magentaGlow: 'rgba(224, 64, 251, 0.35)',
+  cyan: '#00e5ff',
+  cyanDim: 'rgba(0, 229, 255, 0.1)',
+  cyanGlow: 'rgba(0, 229, 255, 0.35)',
+  green: '#00ff88',
+  text: '#e8eaf6',
+  muted: '#546e7a',
+  border: 'rgba(224, 64, 251, 0.2)',
+  borderHover: 'rgba(224, 64, 251, 0.5)',
 };
 
 export const cyberpunkTheme = createTheme({
   palette: {
-    mode: 'light',
+    mode: 'dark',
     primary: {
-      main: lightColors.teal,
-      light: lightColors.turquoise,
-      dark: lightColors.darkTeal,
+      main: c.magenta,
+      light: '#ea80fc',
+      dark: '#ab00d6',
     },
     secondary: {
-      main: lightColors.turquoise,
-      light: lightColors.mint,
-      dark: lightColors.teal,
+      main: c.cyan,
+      light: '#6effff',
+      dark: '#00b2cc',
     },
     background: {
-      default: lightColors.white,
-      paper: lightColors.mint,
+      default: c.bg,
+      paper: c.surface,
     },
     text: {
-      primary: lightColors.darkText,
-      secondary: lightColors.teal,
+      primary: c.text,
+      secondary: c.muted,
     },
-    success: {
-      main: lightColors.turquoise,
-    },
-    warning: {
-      main: '#ff9966',
-    },
-    info: {
-      main: lightColors.teal,
-    },
+    success: { main: c.green },
+    warning: { main: '#ffea00' },
+    error: { main: '#ff1744' },
+    divider: c.border,
   },
   typography: {
-    fontFamily: [
-      'Orbitron',
-      'Roboto Mono',
-      'monospace',
-      'sans-serif',
-    ].join(','),
+    fontFamily: ['Orbitron', 'Roboto Mono', 'monospace'].join(','),
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 700,
-    h1: {
-      fontSize: '2.5rem',
-      fontWeight: 700,
-      color: lightColors.teal,
-    },
-    h2: {
-      fontSize: '2rem',
-      fontWeight: 600,
-    },
-    h3: {
-      fontSize: '1.5rem',
-      fontWeight: 500,
-    },
+    h1: { fontSize: '2.5rem', fontWeight: 700, letterSpacing: '0.06em' },
+    h2: { fontSize: '2rem', fontWeight: 600, letterSpacing: '0.04em' },
+    h3: { fontSize: '1.5rem', fontWeight: 500 },
     button: {
       fontFamily: 'Orbitron, monospace',
       fontWeight: 600,
       textTransform: 'uppercase',
+      letterSpacing: '0.1em',
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: { body: { backgroundColor: c.bg } },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: '8px',
-          border: `2px solid ${lightColors.teal}`,
-          boxShadow: `0 0 15px rgba(43, 122, 120, 0.3)`,
-          transition: 'all 0.3s ease',
-          '&:hover': {
-            boxShadow: `0 0 25px rgba(58, 175, 169, 0.5)`,
-            transform: 'translateY(-2px)',
-          },
+          borderRadius: '4px',
+          transition: 'all 0.25s ease',
+          '&:hover': { transform: 'translateY(-1px)' },
+          '&:disabled': { opacity: 0.3 },
         },
         contained: {
-          background: lightColors.turquoise,
-          color: lightColors.white,
+          background: `linear-gradient(135deg, ${c.magenta}, #ab00d6)`,
+          color: '#fff',
+          border: `1px solid ${c.magenta}`,
+          boxShadow: `0 0 20px ${c.magentaGlow}`,
           '&:hover': {
-            background: lightColors.teal,
+            background: `linear-gradient(135deg, #ea80fc, ${c.magenta})`,
+            boxShadow: `0 0 35px ${c.magentaGlow}, 0 0 70px rgba(224,64,251,0.15)`,
           },
         },
         outlined: {
-          borderColor: lightColors.teal,
-          color: lightColors.teal,
+          borderColor: c.cyan,
+          color: c.cyan,
           '&:hover': {
-            borderColor: lightColors.turquoise,
-            color: lightColors.turquoise,
-            boxShadow: `0 0 20px rgba(58, 175, 169, 0.4)`,
+            borderColor: '#6effff',
+            backgroundColor: c.cyanDim,
+            boxShadow: `0 0 20px ${c.cyanGlow}`,
           },
         },
       },
@@ -115,14 +94,16 @@ export const cyberpunkTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: lightColors.mint,
-          border: `1px solid ${lightColors.turquoise}`,
-          borderRadius: '12px',
-          boxShadow: `0 4px 20px rgba(43, 122, 120, 0.2)`,
-          // '&:hover': {
-          //   border: `1px solid ${lightColors.teal}`,
-          //   boxShadow: `0 6px 30px rgba(58, 175, 169, 0.3)`,
-          // },
+          backgroundColor: c.surface,
+          border: `1px solid ${c.border}`,
+          borderRadius: '8px',
+          boxShadow: `0 4px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(224,64,251,0.06)`,
+          backdropFilter: 'blur(16px)',
+          transition: 'border-color 0.25s, box-shadow 0.25s',
+          '&:hover': {
+            borderColor: c.borderHover,
+            boxShadow: `0 4px 32px rgba(0,0,0,0.7), 0 0 24px ${c.magentaDim}`,
+          },
         },
       },
     },
@@ -130,37 +111,29 @@ export const cyberpunkTheme = createTheme({
       styleOverrides: {
         root: {
           '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              borderColor: lightColors.teal,
-              boxShadow: `0 0 5px rgba(43, 122, 120, 0.2)`,
-            },
-            '&:hover fieldset': {
-              borderColor: lightColors.turquoise,
-              boxShadow: `0 0 10px rgba(58, 175, 169, 0.3)`,
-            },
+            backgroundColor: 'rgba(4, 6, 16, 0.7)',
+            '& fieldset': { borderColor: 'rgba(224,64,251,0.25)' },
+            '&:hover fieldset': { borderColor: c.magenta },
             '&.Mui-focused fieldset': {
-              borderColor: lightColors.teal,
-              boxShadow: `0 0 15px rgba(43, 122, 120, 0.4)`,
+              borderColor: c.magenta,
+              boxShadow: `0 0 14px ${c.magentaDim}`,
             },
           },
           '& .MuiInputLabel-root': {
-            color: lightColors.teal,
-            '&.Mui-focused': {
-              color: lightColors.teal,
-            },
+            color: c.muted,
+            '&.Mui-focused': { color: c.magenta },
           },
-          '& .MuiOutlinedInput-input': {
-            color: lightColors.darkText,
-          },
+          '& .MuiOutlinedInput-input': { color: c.text },
         },
       },
     },
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: lightColors.white,
-          borderBottom: `2px solid ${lightColors.teal}`,
-          boxShadow: `0 2px 10px rgba(43, 122, 120, 0.2)`,
+          backgroundColor: 'rgba(4, 6, 16, 0.94)',
+          borderBottom: `1px solid rgba(224,64,251,0.25)`,
+          boxShadow: `0 1px 30px rgba(224,64,251,0.15)`,
+          backdropFilter: 'blur(20px)',
         },
       },
     },
@@ -168,16 +141,17 @@ export const cyberpunkTheme = createTheme({
       styleOverrides: {
         root: {
           '& .MuiTab-root': {
-            color: lightColors.teal,
+            color: c.muted,
             fontWeight: 600,
-            fontSize: '1.1rem',
-            '&.Mui-selected': {
-              color: lightColors.turquoise,
-            },
+            letterSpacing: '0.1em',
+            transition: 'color 0.2s',
+            '&.Mui-selected': { color: c.cyan },
+            '&:hover': { color: c.text },
           },
           '& .MuiTabs-indicator': {
-            backgroundColor: lightColors.turquoise,
-            height: '3px',
+            backgroundColor: c.cyan,
+            height: '2px',
+            boxShadow: `0 0 12px ${c.cyan}`,
           },
         },
       },
@@ -185,24 +159,32 @@ export const cyberpunkTheme = createTheme({
     MuiTableContainer: {
       styleOverrides: {
         root: {
-          backgroundColor: lightColors.mint,
-          border: `1px solid ${lightColors.turquoise}`,
+          backgroundColor: c.surface,
+          border: `1px solid ${c.border}`,
           borderRadius: '8px',
+          backdropFilter: 'blur(16px)',
         },
       },
     },
     MuiTableCell: {
       styleOverrides: {
         head: {
-          backgroundColor: lightColors.lightMint,
-          color: lightColors.teal,
+          backgroundColor: 'rgba(224, 64, 251, 0.07)',
+          color: c.magenta,
           fontWeight: 700,
-          borderBottom: `2px solid ${lightColors.teal}`,
+          letterSpacing: '0.08em',
+          borderBottom: `1px solid ${c.border}`,
+          textShadow: `0 0 10px ${c.magentaGlow}`,
         },
         body: {
-          color: lightColors.darkText,
-          borderBottom: `1px solid rgba(43, 122, 120, 0.2)`,
+          color: c.text,
+          borderBottom: `1px solid rgba(224, 64, 251, 0.07)`,
         },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: { backgroundImage: 'none', backgroundColor: c.surface },
       },
     },
   },
