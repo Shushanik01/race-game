@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir \"c:\\\\Users\\\\user\\\\Desktop\\\\race-game\\\\server\")",
+      "Bash(node server/server.js)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\user\\Desktop\\race-game"
+    ]
+  }
+}
