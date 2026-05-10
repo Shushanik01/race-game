@@ -23,7 +23,6 @@ const saveDB = (data) => fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2)
 const nextId = (items) =>
   items.length > 0 ? Math.max(...items.map((x) => x.id)) + 1 : 1;
 
-// ── Garage ──────────────────────────────────────────────────────────────────
 
 app.get('/garage', (req, res) => {
   const db = loadDB();
@@ -65,7 +64,6 @@ app.delete('/garage/:id', (req, res) => {
   res.json({ success: true });
 });
 
-// ── Engine ───────────────────────────────────────────────────────────────────
 
 app.patch('/engine', (req, res) => {
   const { id, status } = req.query;
@@ -89,7 +87,6 @@ app.patch('/engine', (req, res) => {
   res.status(400).json({ error: 'Invalid status' });
 });
 
-// ── Winners ──────────────────────────────────────────────────────────────────
 
 app.get('/winners', (req, res) => {
   const db = loadDB();
