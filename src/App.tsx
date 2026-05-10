@@ -12,7 +12,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={cyberpunkTheme}>
       <CssBaseline />
-      <Router basename="/Async-race-project">
+      <Router basename="/race-game">
         <Layout>
          <AppRoutes/>
         </Layout>
