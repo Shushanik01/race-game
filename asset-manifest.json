@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/race-game/static/css/main.97dc5bc5.css",
-    "main.js": "/race-game/static/js/main.31e164a0.js",
+    "main.js": "/race-game/static/js/main.b8ae261e.js",
     "index.html": "/race-game/index.html",
     "main.97dc5bc5.css.map": "/race-game/static/css/main.97dc5bc5.css.map",
-    "main.31e164a0.js.map": "/race-game/static/js/main.31e164a0.js.map"
+    "main.b8ae261e.js.map": "/race-game/static/js/main.b8ae261e.js.map"
   },
   "entrypoints": [
     "static/css/main.97dc5bc5.css",
-    "static/js/main.31e164a0.js"
+    "static/js/main.b8ae261e.js"
   ]
 }
